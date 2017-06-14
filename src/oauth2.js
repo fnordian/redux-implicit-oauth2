@@ -41,8 +41,10 @@ const listenForCredentials = (popup, state, resolve, reject) => {
 
 const authorize = (config) => {
   const state = cuid()
+  const nonce = cuid()
   const query = querystring.stringify({
     state,
+    nonce,
     response_type: 'token',
     client_id: config.client,
     scope: config.scope,
